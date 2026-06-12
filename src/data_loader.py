@@ -31,7 +31,7 @@ def load_data(filepath: str) -> pd.DataFrame:
         )
 
     # The UCI dataset uses semicolons as delimiters
-    df = pd.read_csv(filepath, sep=";")
+    df = pd.read_csv(filepath)
     print(f" Dataset loaded successfully: {df.shape[0]} rows, {df.shape[1]} columns")
     return df
 
