@@ -35,13 +35,13 @@ The project follows a clean, modular, three-stage pipeline:
 
 ```
 ┌──────────────────┐     ┌────────────────────────┐     ┌─────────────────────────┐
-│   01_EDA.ipynb    │ ──▶ │ 02_Preprocessing.ipynb  │ ──▶ │ 03_Model_Training.ipynb │
+│   01_EDA.ipynb   │ ─▶ │ 02_Preprocessing.ipynb  │ ─▶ │ 03_Model_Training.ipynb │
 ├──────────────────┤     ├────────────────────────┤     ├─────────────────────────┤
-│ Load raw data     │     │ Feature engineering     │     │ Train 6 ML models       │
-│ Clean & validate  │     │ Encode categoricals      │     │ Evaluate all models      │
-│ Explore patterns  │     │ Train/test split          │     │ Compare performance       │
-│ Visualize trends  │     │ Scale features              │     │ Feature importance         │
-│ Save clean data   │     │ Save processed data           │     │ Save trained models          │
+│ Load raw data    │     │ Feature engineering    │     │ Train 6 ML models       │
+│ Clean & validate │     │ Encode categoricals    │     │ Evaluate all models     │
+│ Explore patterns │     │ Train/test split       │     │ Compare performance     │
+│ Visualize trends │     │ Scale features         │     │ Feature importance      │
+│ Save clean data  │     │ Save processed data    │     │ Save trained models     │
 └──────────────────┘     └────────────────────────┘     └─────────────────────────┘
 ```
 
@@ -94,9 +94,9 @@ All trained models are saved as `.pkl` files in `models/` via `joblib`, ready fo
 
 | Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
 |---|---|---|---|---|---|
-| Logistic Regression | *0.XX* | *0.XX* | *0.XX* | *0.XX* | *0.XX* |
-| Random Forest | *0.XX* | *0.XX* | *0.XX* | *0.XX* | *0.XX* |
-| Gradient Boosting | *0.XX* | *0.XX* | *0.XX* | *0.XX* | *0.XX* |
+| Logistic Regression | *0.86* | *0.93* | *0.84* | *0.89* | *0.944* |
+| Random Forest | *0.88* | *0.95* | *0.86* | *0.91* | *0.942* |
+| Gradient Boosting | *0.88* | *0.94* | *0.88* | *0.91* | *0.941* |
 
 ![Model Comparison_F1-Score](reports/figures/model_comparison_F1-Score.png)
 
@@ -105,9 +105,9 @@ All trained models are saved as `.pkl` files in `models/` via `joblib`, ready fo
 
 | Model | MAE | RMSE | R² Score |
 |---|---|---|---|
-| Linear Regression | *X.XX* | *X.XX* | *0.XX* |
-| Random Forest | *X.XX* | *X.XX* | *0.XX* |
-| Gradient Boosting | *X.XX* | *X.XX* | *0.XX* |
+| Linear Regression | *1.54* | *2.14* | *0.77* |
+| Random Forest | *1.04* | *1.6* | *0.87* |
+| Gradient Boosting | *1.13* | *1.75* | *0.84* |
 
 > **Note:** Run `03_Model_Training.ipynb` to populate these tables with actual values from your environment. The `clf_comparison` and `reg_comparison` DataFrames printed near the end of the notebook contain these exact numbers — copy them here once generated.
 
