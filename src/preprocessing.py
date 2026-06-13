@@ -1,9 +1,7 @@
 """
 preprocessing.py
 ================
-Functions for cleaning and transforming the Student Performance dataset.
-
-Steps covered:
+Steps:
     1. Encode binary categorical columns (yes/no → 1/0)
     2. One-hot encode multi-category columns
     3. Add a binary classification target (Pass/Fail)

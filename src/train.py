@@ -1,8 +1,6 @@
 """
 train.py
 ========
-Functions to train multiple machine learning models and save them to disk.
-
 Models included:
     - Logistic Regression (classification baseline)
     - Random Forest (ensemble — classification & regression)
@@ -14,7 +12,7 @@ Usage:
 
 import joblib
 import os
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
 
@@ -42,7 +40,7 @@ def train_classifier(X_train, y_train, model_name: str = "random_forest"):
 
     model = models[model_name]
     model.fit(X_train, y_train)
-    print(f"✅ Classifier trained: {model_name}")
+    print(f" Classifier trained: {model_name}")
     return model
 
 
@@ -59,6 +57,7 @@ def train_regressor(X_train, y_train, model_name: str = "random_forest"):
         Trained sklearn model.
     """
     models = {
+        "linear_regression": LinearRegression(),
         "random_forest": RandomForestRegressor(n_estimators=100, random_state=42),
         "gradient_boosting": GradientBoostingRegressor(n_estimators=100, random_state=42),
     }
@@ -68,7 +67,7 @@ def train_regressor(X_train, y_train, model_name: str = "random_forest"):
 
     model = models[model_name]
     model.fit(X_train, y_train)
-    print(f"✅ Regressor trained: {model_name}")
+    print(f" Regressor trained: {model_name}")
     return model
 
 
@@ -84,7 +83,7 @@ def save_model(model, filename: str, save_dir: str = "models/") -> None:
     os.makedirs(save_dir, exist_ok=True)
     filepath = os.path.join(save_dir, filename)
     joblib.dump(model, filepath)
-    print(f"✅ Model saved to: {filepath}")
+    print(f" Model saved to: {filepath}")
 
 
 def load_model(filename: str, save_dir: str = "models/"):
@@ -100,5 +99,5 @@ def load_model(filename: str, save_dir: str = "models/"):
     """
     filepath = os.path.join(save_dir, filename)
     model = joblib.load(filepath)
-    print(f"✅ Model loaded from: {filepath}")
+    print(f" Model loaded from: {filepath}")
     return model

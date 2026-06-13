@@ -1,8 +1,6 @@
 """
 evaluate.py
 ===========
-Functions for evaluating and comparing ML model performance.
-
 Covers:
     - Classification metrics: Accuracy, Precision, Recall, F1, ROC-AUC
     - Regression metrics: MAE, RMSE, R² Score
